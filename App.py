@@ -1,9 +1,9 @@
-import difflib, datetime, smtplib ,ssl
+import difflib, datetime, smtplib 
 from netmiko import Netmiko, ConnectHandler
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-#IP address for the device
+#IP address for the main device
 ip = "192.168.104.120"
 
 # Assigning the device type for netmiko custtomization
@@ -35,10 +35,6 @@ with open(currentConfig,'w') as newConfig:
 print("comparing and highliting the diffrent configs.......")
 with open(deviceOldConfig,'r') as oldFile ,open(currentConfig,'r') as newFile:
     diff = difflib.HtmlDiff().make_file(fromlines = oldFile.readlines(), tolines=newFile.readlines(), fromdesc="Yesterday", todesc="Todaay")
-
-
-
-
 
 print("connecting to protonmail server.......")
 mail = "Your outook email" ######REPLACE!!!!!!!!!!!!!
