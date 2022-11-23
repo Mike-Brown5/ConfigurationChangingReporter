@@ -1,0 +1,33 @@
+! Command: show running-config
+! device: S3 (vEOS, EOS-4.20.15M)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname S3
+!
+ntp server 192.168.1.66
+!
+spanning-tree mode mstp
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$hjdY7pwjcvhqYDfE$Nvii9fvXCcW1XyUMSR8F6.GyFNybHjSuO1g1PKpseUkF/wiGAr/OzN.iOU4MxCVjE9FrPfvOqDqS6xS1.VMPy0
+!
+vlan 22,33,50
+!
+interface Loopback0
+   ip address 3.3.3.3/16
+!
+interface Management1
+   ip address 192.168.104.120/24
+!
+ip route 0.0.0.0/0 10.1.1.1
+!
+no ip routing
+!
+management ssh
+   authentication empty-passwords deny
+!
+end
