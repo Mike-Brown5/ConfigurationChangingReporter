@@ -28,7 +28,7 @@ output = session.send_command(command,read_timeout=15)
 
 deviceOldConfig = "configFiles/" + ip + '_' + (datetime.date.today() - datetime.timedelta(days = 1)).isoformat()
 
-currentConfig = "configFiles/" + ip + datetime.date.today().isoformat()
+currentConfig = "configFiles/" + ip + '_' + datetime.date.today().isoformat()
 print("Writing down the runnig config.......")
 with open(currentConfig,'w') as newConfig:
     newConfig.write(output + "\n")
