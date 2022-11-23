@@ -41,8 +41,8 @@ with open(deviceOldConfig,'r') as oldFile ,open(currentConfig,'r') as newFile:
 
 
 print("connecting to protonmail server.......")
-mail = "mikeaxe5@outlook.com"
-pas = "ThisIsMyOutlook"
+mail = "Your outook email" ######REPLACE!!!!!!!!!!!!!
+pas = "your password" ######REPLACE!!!!!!!!!!!!!
 
 server = smtplib.SMTP("smtp-mail.outlook.com", port=587)
 server.connect("smtp-mail.outlook.com", port=587)
